@@ -14,8 +14,10 @@ def format_requesite(id_number: str) -> str:
 
     if id == "Счет ":
         return id + mask_account_number(number)
-    else:
+    elif id:
         return id + mask_card_number(number)
+
+    raise ValueError("Не верный формат строки")
 
 
 def format_date(date: str) -> str:
