@@ -30,16 +30,16 @@ def get_data_from_json_file(path: str) -> list[dict]:
                 operations = json.load(file)
                 logg.info("Загрузка файла завершена")
             except json.JSONDecodeError:
-                logg.warning("Ошибка загрузки файла")
-                logg.info("Завершение программы, транзакций не найдено")
+                logg.error("Ошибка загрузки файла")
+                logg.error("Завершение программы, транзакций не найдено")
                 return []
     except FileNotFoundError:
-        logg.warning("Ошибка открытия файла")
-        logg.info("Завершение программы, транзакций не найдено")
+        logg.error("Ошибка открытия файла")
+        logg.error("Завершение программы, транзакций не найдено")
         return []
     if not type(operations) is list:
-        logg.warning("Файл не содержит транзакций")
-        logg.info("Завершение программы, транзакций не найдено")
+        logg.error("Файл не содержит транзакций")
+        logg.error("Завершение программы, транзакций не найдено")
         return []
 
     logg.info("Успешное завершение программы")
