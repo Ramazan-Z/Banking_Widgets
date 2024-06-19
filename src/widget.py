@@ -23,6 +23,6 @@ def format_requesite(id_number: str) -> str:
 def format_date(date: str) -> str:
     """Функция принимает строку с датой в формате: ГГГГ-ММ-ДД чч:мм:сс.мкс
     и возвращает строку с датой в формате: ДД.ММ.ГГГГ"""
-    date_obj = datetime.strptime(date, "%Y-%m-%dT%H:%M:%S.%f")
+    date_obj = datetime.strptime(date[:19], "%Y-%m-%dT%H:%M:%S")
 
     return date_obj.strftime("%d.%m.%Y")
